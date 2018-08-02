@@ -1,19 +1,19 @@
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const helmet = require('helmet')
-const users = require('./routes/characters');
-const app = express();
-const morgan = require('morgan')
-const dotEnv = require('dotenv')
+import express, { json, urlencoded } from 'express';
+import cookieParser from 'cookie-parser';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import { config } from 'dotenv';
+import users from './routes/characters';
 
-dotEnv.config()
-app.use(morgan('dev'))
-app.use(helmet())
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.use(cookieParser())
-app.use(function (req, res, next) {
+const app = express();
+
+config();
+app.use(morgan('dev'));
+app.use(helmet());
+app.use(json());
+app.use(urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use((req, res, next) => {
   res.contentType('application/json');
   next();
 });
