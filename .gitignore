@@ -1,4 +1,6 @@
 
+dist/
+
 # Created by https://www.gitignore.io/api/node,sublimetext,visualstudiocode
 
 ### Node ###
@@ -109,11 +111,6 @@ bh_unicode_properties.cache
 GitHub.sublime-settings
 
 ### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
+.vscode/
 
 # End of https://www.gitignore.io/api/node,sublimetext,visualstudiocode

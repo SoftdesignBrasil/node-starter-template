@@ -4,7 +4,12 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var paramDebug = process.argv[2]
+if (paramDebug === 'dev') {
+  var app = require('../src/app');
+} else {
+  var app = require('../dist/app');
+}
 var debug = require('debug')('marvel-api:server');
 var http = require('http');
 

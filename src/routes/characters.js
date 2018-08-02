@@ -1,7 +1,9 @@
-const express = require('express');
-const moment =  require('moment');
-const crypto =  require('crypto');
+import express from 'express';
+import moment from 'moment';
+import crypto from 'crypto';
 import request from 'request';
+const querystring = require('querystring');
+
 const router = express.Router();
 
 function getAuth() {
@@ -14,11 +16,18 @@ function getAuth() {
 
 router.get('/', function(req, res, next) {
   let {publicKey, hash, ts} = getAuth()
-  request.get(`${process.env.MARVEL_URL}/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}`, function callback(err, httpResponse, body) {
+  
+  const currentQuery = querystring.stringify(req.query)
+  const context = '/v1/public/characters'
+  const url = `${process.env.MARVEL_URL}${context}?ts=${ts}&apikey=${publicKey}&hash=${hash}&${currentQuery}`
+
+  console.log(url)
+
+  request.get(url, function callback(err, httpResponse, body) {
       if (err) {
         res.send(500, err)
       }
-      res.send(body)
+      res.status().send(body)
   })
 });
 
