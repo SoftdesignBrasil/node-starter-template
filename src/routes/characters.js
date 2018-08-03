@@ -16,19 +16,18 @@ function getAuth() {
 
 router.get('/', (req, res) => {
   const { publicKey, hash, ts } = getAuth();
-
   let currentQuery = stringify(req.query);
   if (currentQuery) {
     currentQuery = `&${currentQuery}`;
   }
   const context = '/v1/public/characters';
   const url = `${process.env.MARVEL_URL}${context}?ts=${ts}&apikey=${publicKey}&hash=${hash}${currentQuery}`;
-
   request.get(url, (err, httpResponse, body) => {
     if (err) {
-      res.send(500, err);
+      res.send(500);
+    } else {
+      res.status(httpResponse.statusCode).send(body);
     }
-    res.status(httpResponse.statusCode).send(body);
   });
 });
 
@@ -40,9 +39,10 @@ router.get('/:idCharacter', (req, res) => {
 
   request.get(url, (err, httpResponse, body) => {
     if (err) {
-      res.send(500, err);
+      res.send(500);
+    } else {
+      res.status(httpResponse.statusCode).send(body);
     }
-    res.status(httpResponse.statusCode).send(body);
   });
 });
 
