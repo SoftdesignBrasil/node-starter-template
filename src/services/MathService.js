@@ -1,4 +1,4 @@
-export default class Calc {
+export default class MathService {
   static sum(x, y) {
     return x + y;
   }

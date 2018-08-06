@@ -8,7 +8,9 @@
     "build": "npm run clean && babel src -d dist",
     "dev": "babel-node ./bin/www dev",
     "test": "nyc --all mocha --require babel-core/register",
-    "debug": "nodemon --inspect --exec 'npm run dev'"
+    "debug": "nodemon --inspect --exec 'npm run dev'",
+    "eslint": "eslint src/",
+    "eslint-fix": "eslint src/ --fix"
   },
   "dependencies": {
     "body-parser": "~1.18.3",
@@ -19,7 +21,9 @@
     "helmet": "~3.13.0",
     "moment": "~2.22.2",
     "morgan": "~1.9.0",
-    "request": "~2.87.0"
+    "request": "~2.87.0",
+    "request-promise": "^4.2.2",
+    "winston": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -34,7 +38,8 @@
     "mocha": "^5.2.0",
     "nock": "^9.4.4",
     "node-mocks-http": "^1.7.0",
-    "nyc": "^12.0.2"
+    "nyc": "^12.0.2",
+    "supertest": "^3.1.0"
   },
   "nyc": {
     "exclude": [
