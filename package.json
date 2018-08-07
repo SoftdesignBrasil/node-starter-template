@@ -8,7 +8,7 @@
     "build": "npm run clean && webpack",
     "build:prod": "npm run clean && webpack -p",
     "dev": "npm run build && npm run start",
-    "test": "nyc --all mocha --exit --require babel-core/register",
+    "test": "nyc mocha",
     "debug": "npm run build && nodemon --inspect --exec \"node dist/app.js\"",
     "eslint": "eslint src/",
     "eslint:fix": "eslint src/ --fix"
@@ -46,12 +46,5 @@
     "webpack": "^4.16.5",
     "webpack-command": "^0.4.1",
     "webpack-node-externals": "^1.7.2"
-  },
-  "nyc": {
-    "exclude": [
-      "**/*.spec.js",
-      "dist",
-      "*.config.js"
-    ]
   }
 }

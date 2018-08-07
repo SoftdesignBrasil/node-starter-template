@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 import nock from 'nock';
 import request from 'supertest';
-import app from '../src/app';
+import app from '../../src/app';
 
 const nockUrl = nock('http://gateway.marvel.com');
 const requestUrl = request(app);

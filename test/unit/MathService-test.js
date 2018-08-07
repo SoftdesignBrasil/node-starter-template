@@ -1,5 +1,5 @@
 import { equal } from 'assert';
-import MathService from '../src/services/MathService';
+import MathService from '../../src/services/MathService';
 
 describe('MathService service tests', () => {
   it('should return the sum of 1 and 2', () => {
