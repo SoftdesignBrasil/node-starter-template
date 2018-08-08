@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../src/app';
+import app from '../../src/app';
 
 const requestUrl = request('http://localhost:3000');
 

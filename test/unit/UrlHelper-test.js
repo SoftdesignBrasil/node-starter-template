@@ -1,6 +1,6 @@
 import { ok, equal } from 'assert';
 import moment from 'moment';
-import UrlHelper from '../src/utils/UrlHelper';
+import UrlHelper from '../../src/utils/UrlHelper';
 
 describe('UrlHelper tests', () => {
   it('should create a auth params', () => {
